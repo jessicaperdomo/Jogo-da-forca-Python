@@ -71,14 +71,13 @@ while num > 0:
   lista_frutas = ["banana", "maça", "pessego", "manga", "amora", "ameixa", "acerola", "laranja", "limao"]
 
   #Biblioteca de animais:
-
   if num == 1:
     pos = random.randint(0,len(lista_animais)-1)
     palavra_sorteada = lista_animais[pos]
     print(des_forca[0])
     print("\n")
 
-    print(end="\t\t\t ")
+    print(end="\t\t\t")
 
     for i in range(0, len(palavra_sorteada),1):
       vet.append('_')
@@ -87,7 +86,15 @@ while num > 0:
     print("\n")
 
     while count != len(palavra_sorteada) and des != 6:
-      letra = input("\nAdivinhe a palavra. Digite uma letra: \n")
+      letra = '1'
+
+      while (ord(letra) >= 65 and ord(letra) <= 90 or ord(letra) >= 97 and ord(letra) <= 122) == False:
+        letra = input("\nAdivinhe a palavra. Digite uma letra: \n")
+        if ord(letra) >= 65 and ord(letra) <= 90 or ord(letra) >= 97 and ord(letra) <= 122:
+          if ord(letra) >= 65 and ord(letra) <= 90:
+           letra = letra.lower()
+          else:
+           print("Dígito inválido !")
 
       count_letras = 0
 
@@ -135,12 +142,19 @@ while num > 0:
       print(vet[i], end=' ')
     
     print("\n")
-
+    
     while count != len(palavra_sorteada) and des != 6:
-      letra = input("\nAdivinhe a palavra. Digite uma letra: \n")
+      letra = '1'
 
+      while (ord(letra) >= 65 and ord(letra) <= 90 or ord(letra) >= 97 and ord(letra) <= 122) == False:
+        letra = input("\nAdivinhe a palavra. Digite uma letra: \n")
+        if ord(letra) >= 65 and ord(letra) <= 90 or ord(letra) >= 97 and ord(letra) <= 122:
+          if ord(letra) >= 65 and ord(letra) <= 90:
+           letra = letra.lower()
+          else:
+           print("Dígito inválido !")
       count_letras = 0
-
+  
       for i in range(0,len(letras_ditas),1):
         if letra == letras_ditas[i]:
           count_letras+=1
@@ -151,7 +165,6 @@ while num > 0:
         aux = count
 
         for i in range(0,len(palavra_sorteada),1):
-
           if letra == palavra_sorteada[i]:
             vet[i] = letra
             letras_ditas.append(letra)
